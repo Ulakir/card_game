@@ -78,6 +78,13 @@ class StraightFlush():
     def check(cards):
         return Straight.check(cards) and Flush.check(cards)
 
+def combine(cards):
+    r = []
+    for ex1 in range(6):
+        for ex2 in range(ex1 + 1, 7):
+            r.append(cards[:ex1] + cards[ex1 + 1:ex2] + cards[ex2 + 1:])
+    return r
+
 def compare(cards):
     for c in combinations:
         if c.check(cards):
